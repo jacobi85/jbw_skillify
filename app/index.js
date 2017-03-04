@@ -7,4 +7,4 @@ import ReactDOM from 'react-dom';
 import Layout from './components';
 
 
-ReactDOM.render(<Layout/>, document.getElementById("app"));
+ReactDOM.render(<Layout/>, document.getElementById("app"), () => {console.timeEnd('React app')});
