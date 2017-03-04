@@ -6,8 +6,18 @@ import React from 'react';
 
 export default class FilterRow extends React.Component {
 
-    constructor () {
-        super();
+    constructor (props) {
+        super(props);
+        this._handleSearchBoxInputChange = this._handleSearchBoxInputChange.bind(this);
+        this._handleSelectBoxFilterChange = this._handleSelectBoxFilterChange.bind(this);
+    }
+
+    _handleSearchBoxInputChange (e) {
+        this.props.onFilterTextChange(e.target.value);
+    }
+
+    _handleSelectBoxFilterChange (e) {
+        this.props.onFilterLeagueChange(this.refs.filterLeague[this.refs.filterLeague.selectedIndex].value);
     }
 
     render () {
@@ -22,16 +32,24 @@ export default class FilterRow extends React.Component {
                             <div className="ui icon input">
                                 <input className="prompt"
                                        type="text"
-                                       placeholder={this.props.children} />
+                                       placeholder={this.props.children}
+                                       value={this.props.filterText}
+                                       ref="filterText"
+                                       onChange={this._handleSearchBoxInputChange}
+                                />
                                 <i className="search icon"></i>
                             </div>
                             <div className="results"></div>
                         </div>
                         <div className="field">
-                            <select className="ui fluid search dropdown" name="card[expire-month]">
+                            <select className="ui fluid search dropdown"
+                                    ref="filterLeague"
+                                    onChange={this._handleSelectBoxFilterChange}>
                                 { leagueOptions.map(league => {
                                     { var index = leagueOptions.indexOf(league) }
-                                    return <option value={index} key={index}>{league}</option>
+                                    return <option
+                                        value={this.props.filterLeague}
+                                        key={index}>{league}</option>
                                 }) }
                             </select>
                         </div>
@@ -39,6 +57,7 @@ export default class FilterRow extends React.Component {
                 </form>
             </aside>
         );
+
     }
 }
 

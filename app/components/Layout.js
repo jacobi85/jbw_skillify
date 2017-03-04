@@ -9,7 +9,7 @@ class Layout extends React.Component {
         return(
             <div className="main ui text padded container">
                 <h1 className="ui block centered header">Rankings</h1>
-                <FilterableRankingTable ranks={ Data } />
+                <FilterableRankingTable />
             </div>
         )
     }

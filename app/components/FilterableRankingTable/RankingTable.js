@@ -14,14 +14,21 @@ export default class RankingTable extends React.Component {
 
     render () {
         let rows = [];
-        let currentLeague = null;
+        let lastCategory = null;
+        var filterText = this.props.filterText;
+        var filterLeague = this.props.filterLeague;
         this.props.ranks.forEach(function(rank) {
 
-            if (currentLeague !== rank.league) {
-                currentLeague = rank.league;
-                rows.push(<RankingTableLeagueRow key={currentLeague}>{currentLeague}</RankingTableLeagueRow>);
+            if (rank.name.toUpperCase().indexOf(filterText.toUpperCase()) === -1) {
+                return;
             }
-            rows.push(<Row key={ rank.id } { ...rank }></Row>)
+
+                if (lastCategory !== rank.league) {
+                    rows.push(<RankingTableLeagueRow key={rank.league}>{rank.league}</RankingTableLeagueRow>);
+                }
+                rows.push(<Row key={ rank.id } { ...rank }></Row>)
+                lastCategory = rank.league;
+
         });
 
         return (
