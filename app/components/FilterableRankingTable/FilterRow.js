@@ -43,6 +43,7 @@ export default class FilterRow extends React.Component {
                         <div className="field">
                             <select className="ui fluid search dropdown"
                                     ref="filterLeague"
+                                    value={this.props.filterLeague}
                                     onChange={this._handleSelectBoxFilterChange}>
                                 { leagueOptions.map(league => {
                                     { var index = leagueOptions.indexOf(league) }
