@@ -8,8 +8,6 @@ export default class FilterRow extends React.Component {
 
     constructor (props) {
         super(props);
-        this._handleSearchBoxInputChange = this._handleSearchBoxInputChange.bind(this);
-        this._handleSelectBoxFilterChange = this._handleSelectBoxFilterChange.bind(this);
     }
 
     _handleSearchBoxInputChange (e) {
@@ -35,7 +33,7 @@ export default class FilterRow extends React.Component {
                                        placeholder={this.props.children}
                                        value={this.props.filterText}
                                        ref="filterText"
-                                       onChange={this._handleSearchBoxInputChange}
+                                       onChange={(e) => this._handleSearchBoxInputChange(e)}
                                 />
                                 <i className="search icon"></i>
                             </div>
@@ -44,7 +42,7 @@ export default class FilterRow extends React.Component {
                             <select className="ui fluid search dropdown"
                                     ref="filterLeague"
                                     value={this.props.filterLeague}
-                                    onChange={this._handleSelectBoxFilterChange}>
+                                    onChange={(e) => this._handleSelectBoxFilterChange(e)}>
                                 { leagueOptions.map(league => {
                                     { var index = leagueOptions.indexOf(league) }
                                     return <option
