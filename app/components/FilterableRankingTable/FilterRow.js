@@ -48,7 +48,7 @@ export default class FilterRow extends React.Component {
                                 { leagueOptions.map(league => {
                                     { var index = leagueOptions.indexOf(league) }
                                     return <option
-                                        value={this.props.filterLeague}
+                                        value={league}
                                         key={index}>{league}</option>
                                 }) }
                             </select>

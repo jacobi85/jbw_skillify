@@ -18,8 +18,10 @@ export default class RankingTable extends React.Component {
         var filterText = this.props.filterText;
         var filterLeague = this.props.filterLeague;
         this.props.ranks.forEach(function(rank) {
+            let compareLettersForFiltering = rank.name.toUpperCase().indexOf(filterText.toUpperCase()) === -1;
+            let filterRanksOnCategory = rank.league.toUpperCase().indexOf(filterLeague.toUpperCase()) === -1 && filterLeague !== 'All';
 
-            if (rank.name.toUpperCase().indexOf(filterText.toUpperCase()) === -1) {
+            if (compareLettersForFiltering || filterRanksOnCategory) {
                 return;
             }
 
