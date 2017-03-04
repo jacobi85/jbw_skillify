@@ -16,6 +16,9 @@ class FilterableRankingTable extends React.Component {
             filterText: '',
             filterLeague: 'All'
         }
+
+        this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
+        this.handleFilterLeagueChange = this.handleFilterLeagueChange.bind(this);
     }
 
     componentWillMount () {
@@ -36,8 +39,8 @@ class FilterableRankingTable extends React.Component {
                 <FilterRow
                     filterText={this.state.filterText}
                     filterLeague={this.state.filterLeague}
-                    onFilterTextChange={(e) => this.handleFilterTextChange(e)} // Same as .bind(this)
-                    onFilterLeagueChange={this.handleFilterLeagueChange.bind(this)} // Same as anonymous function and invoking function inside
+                    onFilterTextChange={this.handleFilterTextChange}
+                    onFilterLeagueChange={this.handleFilterLeagueChange}
                 >Filter list</FilterRow>
 
                 <RankingTable
