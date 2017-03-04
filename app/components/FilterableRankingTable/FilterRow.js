@@ -39,7 +39,6 @@ export default class FilterRow extends React.Component {
                                 />
                                 <i className="search icon"></i>
                             </div>
-                            <div className="results"></div>
                         </div>
                         <div className="field">
                             <select className="ui fluid search dropdown"
@@ -57,7 +56,6 @@ export default class FilterRow extends React.Component {
                 </form>
             </aside>
         );
-
     }
 }
 

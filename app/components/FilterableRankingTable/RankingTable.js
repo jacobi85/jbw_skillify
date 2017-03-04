@@ -17,7 +17,8 @@ export default class RankingTable extends React.Component {
         let lastCategory = null;
         var filterText = this.props.filterText;
         var filterLeague = this.props.filterLeague;
-        this.props.ranks.forEach(function(rank) {
+
+        this.props.ranks.forEach((rank) => {
             let compareLettersForFiltering = rank.name.toUpperCase().indexOf(filterText.toUpperCase()) === -1;
             let filterRanksOnCategory = rank.league.toUpperCase().indexOf(filterLeague.toUpperCase()) === -1 && filterLeague !== 'All';
 
@@ -28,6 +29,7 @@ export default class RankingTable extends React.Component {
                 if (lastCategory !== rank.league) {
                     rows.push(<RankingTableLeagueRow key={rank.league}>{rank.league}</RankingTableLeagueRow>);
                 }
+                
                 rows.push(<Row key={ rank.id } { ...rank }></Row>)
                 lastCategory = rank.league;
 
@@ -42,12 +44,7 @@ export default class RankingTable extends React.Component {
                             <th>Score</th>
                         </tr>
                     </thead>
-                    <tbody>
-
-                        {rows}
-                      
-
-                    </tbody>
+                    <tbody>{rows}</tbody>
                 </table>
         );
     }
