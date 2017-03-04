@@ -4,7 +4,14 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Layout from './components';
+import {Router, hashHistory} from 'react-router';
 
+import routes from './routes';
 
-ReactDOM.render(<Layout/>, document.getElementById("app"), () => {console.timeEnd('React app')});
+const App = (
+    <Router routes={routes} history={hashHistory}/>
+)
+
+ReactDOM.render(App, document.getElementById("app"), () => {
+    console.timeEnd('React app')
+});

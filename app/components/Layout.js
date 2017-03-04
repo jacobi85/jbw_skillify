@@ -2,17 +2,25 @@
  * Created by jacob on 2017-03-02.
  */
 import React from 'react';
-import FilterableRankingTable from './FilterableRankingTable';
+import {Link} from 'react-router';
 
-class Layout extends React.Component {
-    render () {
-        return(
-            <div className="main ui text padded container">
-                <h1 className="ui block centered header">Rankings</h1>
-                <FilterableRankingTable />
+const Layout = props =>
+    <div className="main ui text padded container">
+        <header className="ui block centered header">
+
+            <div className="ui horizontal bulleted list">
+                <Link className="item" to="/ranks">
+                    Ranks
+                </Link>
+                <Link className="item" to="/scores">
+                    Scores
+                </Link>
             </div>
-        )
-    }
-}
+
+        </header>
+        <section className="ui piled segment">
+            {props.children}
+        </section>
+    </div>;
 
 export default Layout;

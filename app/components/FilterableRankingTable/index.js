@@ -8,7 +8,7 @@ import RankingTable from './RankingTable';
 
 class FilterableRankingTable extends React.Component {
 
-    constructor (props) {
+    constructor(props) {
         super(props);
 
         this.state = {
@@ -21,21 +21,21 @@ class FilterableRankingTable extends React.Component {
         this.handleFilterLeagueChange = this.handleFilterLeagueChange.bind(this);
     }
 
-    componentWillMount () {
+    componentWillMount() {
         this._fetchRanks();
     }
 
-    handleFilterTextChange (value) {
-       this.setState({filterText: value});
+    handleFilterTextChange(value) {
+        this.setState({filterText: value});
     }
 
-    handleFilterLeagueChange (value) {
-       this.setState({filterLeague: value});
+    handleFilterLeagueChange(value) {
+        this.setState({filterLeague: value});
     }
 
-    render () {
+    render() {
         return (
-            <div className="ui piled segment">
+            <section>
                 <FilterRow
                     filterText={this.state.filterText}
                     filterLeague={this.state.filterLeague}
@@ -47,8 +47,8 @@ class FilterableRankingTable extends React.Component {
                     ranks={ this.state.ranks }
                     filterText={this.state.filterText}
                     filterLeague={this.state.filterLeague}
-                ></RankingTable>
-            </div>
+                > </RankingTable>
+            </section>
         );
     }
 

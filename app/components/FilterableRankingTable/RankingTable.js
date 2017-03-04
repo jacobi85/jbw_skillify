@@ -8,15 +8,15 @@ import Row from './RankingTableRow';
 
 export default class RankingTable extends React.Component {
 
-    constructor () {
+    constructor() {
         super();
     }
 
-    render () {
+    render() {
         let rows = [];
         let lastCategory = null;
-        var filterText = this.props.filterText;
-        var filterLeague = this.props.filterLeague;
+        let filterText = this.props.filterText;
+        let filterLeague = this.props.filterLeague;
 
         this.props.ranks.forEach((rank) => {
             let compareLettersForFiltering = rank.name.toUpperCase().indexOf(filterText.toUpperCase()) === -1;
@@ -26,26 +26,26 @@ export default class RankingTable extends React.Component {
                 return;
             }
 
-                if (lastCategory !== rank.league) {
-                    rows.push(<RankingTableLeagueRow key={rank.league}>{rank.league}</RankingTableLeagueRow>);
-                }
-                
-                rows.push(<Row key={ rank.id } { ...rank }></Row>)
-                lastCategory = rank.league;
+            if (lastCategory !== rank.league) {
+
+                rows.push(<RankingTableLeagueRow key={rank.league}>{rank.league}</RankingTableLeagueRow>);
+            }
+            rows.push(<Row key={ rank.id } { ...rank }> </Row>)
+            lastCategory = rank.league;
 
         });
 
         return (
-                <table className="ui compact table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Rank</th>
-                            <th>Score</th>
-                        </tr>
-                    </thead>
-                    <tbody>{rows}</tbody>
-                </table>
+            <table className="ui compact table">
+                <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Title</th>
+                    <th>Score</th>
+                </tr>
+                </thead>
+                <tbody>{rows}</tbody>
+            </table>
         );
     }
 }

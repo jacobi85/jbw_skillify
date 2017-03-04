@@ -6,22 +6,22 @@ import React from 'react';
 
 export default class FilterRow extends React.Component {
 
-    constructor (props) {
+    constructor(props) {
         super(props);
 
         this._handleSearchBoxInputChange = this._handleSearchBoxInputChange.bind(this);
         this._handleSelectBoxFilterChange = this._handleSelectBoxFilterChange.bind(this);
     }
 
-    _handleSearchBoxInputChange (e) {
+    _handleSearchBoxInputChange(e) {
         this.props.onFilterTextChange(e.target.value);
     }
 
-    _handleSelectBoxFilterChange (e) {
+    _handleSelectBoxFilterChange() {
         this.props.onFilterLeagueChange(this.refs.filterLeague[this.refs.filterLeague.selectedIndex].value);
     }
 
-    render () {
+    render() {
 
         const leagueOptions = ['All', 'Bronze', 'Silver', 'Gold', 'Platinum', 'Diamond'];
 
@@ -38,7 +38,7 @@ export default class FilterRow extends React.Component {
                                        ref="filterText"
                                        onChange={this._handleSearchBoxInputChange}
                                 />
-                                <i className="search icon"></i>
+                                <i className="search icon"> </i>
                             </div>
                         </div>
                         <div className="field">
@@ -47,7 +47,9 @@ export default class FilterRow extends React.Component {
                                     value={this.props.filterLeague}
                                     onChange={this._handleSelectBoxFilterChange}>
                                 { leagueOptions.map(league => {
-                                    { var index = leagueOptions.indexOf(league) }
+                                    {
+                                        var index = leagueOptions.indexOf(league);
+                                    }
                                     return <option
                                         value={league}
                                         key={index}>{league}</option>
