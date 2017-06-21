@@ -15,7 +15,7 @@ class FilterableRankingTable extends React.Component {
             ranks: [],
             filterText: '',
             filterLeague: 'All'
-        }
+        };
 
         this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
         this.handleFilterLeagueChange = this.handleFilterLeagueChange.bind(this);

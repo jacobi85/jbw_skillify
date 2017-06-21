@@ -10,7 +10,6 @@ const routes  =
         <Redirect from="/" to="/ranks" />
         <IndexRoute component={c.FilterableRankingTable} />
         <Route path="ranks" component={c.FilterableRankingTable}></Route>
-        <Route path="scores" component={c.Scoring}></Route>
     </Route>
 
 export default routes;

@@ -36,7 +36,7 @@ export default class RankingTable extends React.Component {
         });
 
         return (
-            <table className="ui compact table">
+            <table className="ui unstackable table">
                 <thead>
                 <tr>
                     <th>Rank</th>

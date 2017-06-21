@@ -3,7 +3,6 @@
  */
 import Layout from './Layout';
 import FilterableRankingTable from './FilterableRankingTable';
-import Scoring from './Scoring';
 
-export default {Layout, FilterableRankingTable, Scoring};
+export default {Layout, FilterableRankingTable};
 

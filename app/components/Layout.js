@@ -12,9 +12,6 @@ const Layout = props =>
                 <Link className="item" to="/ranks">
                     Ranks
                 </Link>
-                <Link className="item" to="/scores">
-                    Scores
-                </Link>
             </div>
 
         </header>
